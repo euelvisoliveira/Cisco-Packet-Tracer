@@ -1,0 +1,769 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@300;400;500;700;900&family=Roboto&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+
+/*=========== GERAL ===============*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: DM Sans;
+
+  --hue: 350;
+  --primary-color: #066e94;
+  --headline: hsl(210, 11%, 15%);
+  --paragraph: hsl(210, 9%, 31%);
+  --bran-ligth: #a4d7ea;
+  --bran-ligth-2: hsl(calc(var(--hue) + 10), 14%, 97%);
+  --bg-ligth: hsl(180, 14%, 97%);
+
+  --brad-beige: hsl(39, 100%, 97%);
+
+  --brande-dark: hsl(var(--hue), 100%, 14%);
+
+  --nav-heigth: 7.2rem;
+}
+
+html {
+  scroll-behavior: smooth; /* isso usamos para fazer a pagina pular para o services de uma forma suave */
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+  text-align: center;
+
+  overflow: overlay; /* serve para sobrepor o scroll(deixar por cima) pois quando adicionamos o scroll por algum motivo ele e somado o tamanho das coisas na pagina*/
+}
+.wrapper {
+  /* esse e responsavel por criar o padrao de espaco e alimento... na pagina */
+  width: min(50rem, 100%);
+  margin-inline: auto; /* alinhamento da margin automatico*/
+  padding-inline: 2.4rem;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+section header h4 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.6rem;
+}
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  color: var(--headline);
+
+  margin-bottom: 6rem;
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 2.4rem;
+}
+
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+
+  color: var(--paragraph);
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5rem;
+  background: unset;
+  background-color: var(--primary-color);
+  position: relative;
+  top: 3rem;
+
+  text-transform: uppercase;
+  color: #ffff;
+  padding: 1.6rem 3.2rem;
+  /* width: fit-content; server para adpatar ao conteudo */
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: var(--bran-ligth);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: background 200ms;
+}
+
+.social-links {
+  color: #ffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/*================= CUSTOM COLORS=============*/
+
+#services .card circle {
+  fill: var(--bran-ligth);
+}
+
+#navegar .logo path[fill*='#00856F'],
+#backTop circle {
+  fill: var(--primary-color);
+}
+
+#navegar button.open-menu path[stroke*='#00856F'],
+#contact li path {
+  stroke: var(--primary-color);
+}
+
+body.menu-expanded #navegar .logo path,
+#navegar.scroll .logo path {
+  fill: #ffff;
+}
+
+#navegar.scroll button.open-menu path[stroke*='#00856F'] {
+  stroke: #ffff;
+}
+
+/*=============== NAVIGATION ==================*/
+
+nav {
+  display: flex;
+
+  height: var(--nav-heigth);
+
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background: rgba(6, 110, 148, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav .menu,
+nav .close-menu {
+  position: fixed;
+}
+
+/*=============== MENU ==================*/
+body.menu-expanded {
+  overflow: hidden; /* serve para tirar o trasbordamento*/
+}
+
+/*body.menu-expanded > :not(nav) {
+  /* esse esta pegando todos filhos dos primeiro nivel( > == primeiro nivel, * == todos) :not() essa e uma pseudo classe onde estamos usando para quem nao vai ser aplicado o codigo que esta abaixo
+  visibility: hidden;
+} */
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: 5rem;
+
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem; /* usado para dar o espacamento dos elementos que estao dentro da ul*/
+
+  margin-top: 6rem;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.menu .button {
+  background: #ffff;
+  border-radius: 40rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--primary-color);
+  display: inline-block; /* usamos isso para aplicar a margin e altura e largura e fazendo automaticamente a quebra de linha e tirando a sobre posicao do elemento */
+  padding: 1.6rem 3.2rem;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.menu .button:hover {
+  background-color: var(--primary-color);
+  color: #ffff;
+
+  filter: brightness(
+    1.3
+  ); /* esse daqui serve para colocar o contrate brilho, colocar ele borrado sombra e muitas coisas*/
+}
+
+ul i {
+  color: #ffff;
+}
+
+/* codifo para o logo aparecer na aba menu */
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100; /* responsavel por colocar as coisas para cima e para abaixo*/
+}
+
+body.menu-expanded .logo path {
+  fill: #ffff;
+}
+
+body.menu-expanded button path {
+  stroke: #ffff;
+}
+
+/*=============== HOME ==================*/
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-heigth));
+}
+
+#home::before {
+  content: '';
+  width: 100%;
+  height: calc(76% + var(--nav-heigth));
+  background-color: var(--bran-ligth);
+  display: block;
+
+  position: absolute; /* */
+  top: 0;
+  left: 0;
+  z-index: -1; /* serve para colocar no fundo*/
+}
+
+#home .button {
+  margin-inline: auto;
+}
+
+#home p {
+  font-size: 1, 8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+
+  margin-bottom: 3.2rem;
+}
+
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home .stats {
+  width: 100%;
+
+  padding-block: 4rem; /* Esse (padding-block) usamos para substituir esses => padding-top: 4rem; padding-bottom: 4rem; */
+
+  margin-inline: auto; /* serve para fazer o aliamento substituindo o left e right*/
+
+  background: var(--brad-beige);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* para fazer aliamento do eixo principal */
+  gap: 6rem; /* serve para fazer a separacao dos elementos*/
+
+  border: 1px solid var(--bran-ligth);
+  border-radius: 0.6rem;
+}
+
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/*=============== SERVICES ==================*/
+#services hearder h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex; /* usamos esse display flex para podemos mexer nos filhos*/
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: #ffff;
+
+  border: 1px solid var(--bran-ligth);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+/*=============== ABOUT ==================*/
+#about {
+  text-align: left;
+  background-color: var(--brad-beige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
+
+/*=============== CONTACT ==================*/
+
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/*=============== FOOTER ==================*/
+
+footer {
+  background-color: rgba(6, 110, 148, 0.5);
+  padding-block: 6rem;
+
+  text-align: left;
+
+  color: #ffff;
+}
+
+footer .logo {
+  /* a tag ela tem um displau-inline entao nao aceita margin-top, margin-botton, width e heigth*/
+  display: inline-block; /* transformei a tag a em display: inline-block pois ele mantem a sua propriedade (em linha) as que eu nao mudar */
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: #ffff;
+}
+
+footer p {
+  color: var(--brad-beige);
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/*=============== BACK TO TOP ==================*/
+
+#backTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 500ms;
+}
+
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/*=============== RESPONSIVO ==================*/
+
+@media (min-width: 1024px) {
+  /*=============== GERAL ==================*/
+
+  body {
+    overflow: auto;
+  }
+
+  .wrapper {
+    width: min(112rem, 100%);
+    display: grid;
+
+    /* DISPLAY BLOCK => vai trabalhar com as caixas arredores fazendo que aja quebra de linhas nas caixas e uma largura total*/
+    /* DISPLAY INLINE => ele vai manter o tamanho dos elementos sem quebra de linha assim o elemento fica um do lado do outro*/
+    /* DISPLAY FLEX => ele vai trabalhar com as caixas que estao dentro assim colocando uma do lado da outra, ou trablahos com o elemento um dou lado do outro u um abaixo do outro*/
+    /* DISPLAY GRID => nao vai colocar uma do lado da outra mas vai dar para tabalhar com elas ai podemos definir quantas colunas ou linhas eu quero */
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B;
+    position: relative;
+    top: 7rem;
+  }
+
+
+  section header h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+  /*=============== NAVEGAR ==================*/
+  /* RESET */
+  nav#navegar .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+    filter: initial;
+  }
+
+  nav#navegar .close-menu,
+  nav#navegar .open-menu,
+  nav#navegar .social-links {
+    display: none;
+  }
+
+  nav#navegar .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#navegar .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem; /* especifica a transparência de um elemento, isto é, o grau no qual o background atrás do elemento é sobreposto*/
+  }
+
+  nav#navegar .menu ul li a {
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+
+  nav#navegar .menu a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.4rem;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 4rem;
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#navegar .menu a.button:hover {
+    background-color: var(--primary-color);
+    color: #ffff;
+  }
+
+  nav#navegar.scroll .menu ul li a {
+    color: var(--bran-ligth-2);
+    opacity: 0.6;
+  }
+
+  nav#navegar.scroll .menu a.button {
+    border-color: #ffff;
+    color: #ffff;
+  }
+
+  nav#navegar .menu li a {
+    transition: opacity 0.4s;
+  }
+
+  nav#navegar .menu li a.active,
+  nav#navegar .menu li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  nav#navegar .menu li a::after {
+    /* quando for criar um elemento pelo CSS precisa conter o content*/
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+
+    position: relative; /* usamos esse para liberar a propriedade bottom */
+    bottom: -2rem;
+    left: -0.5rem;
+
+    display: block;
+
+    transition: width 0.2s;
+  }
+
+  nav#navegar.scroll .menu li a::after {
+    background-color: #ffff;
+  }
+
+  /* Quando o a (a) tiver estiver no estado (hover) ira pegar o elemento (after) */
+  nav#navegar .menu li a:active::after,
+  nav#navegar .menu li a:hover::after {
+    padding-inline: 0.5rem;
+    width: 100%;
+  }
+
+  nav#navegar.scroll .menu li a:active,
+  nav#navegar.scroll .menu li a:hover {
+    opacity: 1;
+  }
+
+  nav#navegar.scroll .menu a.button:active,
+  nav#navegar.scroll .menu a.button:hover {
+    background-color: var(--primary-color);
+    filter: brightness(1.3);
+    border: none;
+  }
+
+  /*=============== HOME ==================*/
+
+  #home::before {
+    height: calc(96% - var(--nav-heigth));
+  }
+
+  #home {
+    padding-top: var(--nav-heigth);
+  }
+
+  #home .wrapper {
+    grid-template-columns: 60.5rem 1fr;
+    grid-template-areas:
+      'A B'
+      'C C';
+  }
+
+  #home .col-a {
+    text-align: left;
+    align-self: center;
+  }
+
+  #home h1 {
+    font-size: 5.2rem;
+  }
+
+  #home .content p {
+    font-size: 1.8rem;
+  }
+
+  #home .stats {
+    grid-area: C;
+
+    flex-direction: row;
+    padding: 6rem;
+    gap: 0;
+    margin-top: 10rem;
+  }
+
+  /* Vai no (.stats) procura (.stat) que tenha um (.stat) anterior */
+  #home .stats .stat + .stat {
+    border-left: 1px solid var(--primary-color);
+  }
+
+  #home .stats .stat {
+    flex: 1; /* ele existe porque o elemento fora é um flex assim cada um dos filhos pode recebe o flex*/
+  }
+
+  #home .button {
+    margin: 0;
+  }
+
+  #home img {
+    width: 30rem;
+    margin-bottom: 5rem;
+  }
+}
+
+/*=============== SERVICES ==================*/
+
+#services h2 {
+  width: 47rem;
+  margin-inline: auto;
+}
+
+#services .cards {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#services .card {
+  width: 30%;
+  flex-grow: 1; /* esse propriedade (grow) vai fazer o cartao crescer*/
+  gap: 4rem;
+}
+
+/*=============== ABOUT ==================*/
+
+#about .wrapper {
+  grid-template-columns: 48rem 1fr;
+  grid-template-areas: 'B A';
+  gap: 6.7rem;
+}
+
+#about .col-a {
+  align-self: center;
+}
+
+#about .p {
+  margin-bottom: 0;
+}
+
+/*=============== CONTACT ==================*/
+
+#contact .wrapper {
+  grid-template-columns: 1fr 57.5rem;
+  grid-template-areas: 'A B';
+}
+
+#contact h2 {
+  width: 40.4rem;
+}
+
+/*=============== FOOTER ==================*/
+
+footer {
+  padding-block: 8rem;
+}
+
+footer .wrapper {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'A B';
+}
+
+footer .col-a {
+  align-self: center;
+}
+
+footer .col-b-social-links {
+  align-self: center;
+  justify-self: flex-end;
+}
+
+
+footer p {
+  margin-bottom: 0;
+}

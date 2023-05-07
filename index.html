@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--Declaraco mostrando que e uma versao do html-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Janela de exibição-->
+    <title>Cisco Packet Tracer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body">
+    <nav id="navegar">
+      <div class="wrapper">
+        <a class="logo" href="#home">
+          <img src="./assets/cisco-logo-menu.png" alt="logo-menu" height="45px" width="150px" >
+        </a>
+        <div class="menu">
+          <ul>
+            <li>
+              <a onclick="closeMenu()" href="#home">Inicio</a>
+            </li>
+            <li>
+              <a onclick="closeMenu()" href="#services ">Funcionalidades</a>
+            </li>
+            <li>
+              <a onclick="closeMenu()" href="#about">Sobre</a>
+            </li>
+          </ul>
+          <a class="button" target="_blank" onclick="closeMenu()" href="https://id.cisco.com/"> Faça o Download </a>
+          </ul>
+        </div>
+        <button
+          aria-expanded="false"
+          aria-label="Abrir Menu"
+          onclick="openMenu()"
+          class="open-menu"
+        >
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 20H30"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 12H30"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 28L30 28"
+              stroke="#00856F"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <button
+          aria-expanded="true"
+          aria-label="Fechar Menu"
+          onclick="closeMenu()"
+          class="close-menu"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 1L1 21M1 1L21 21"
+              stroke="#FFFAF1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <section id="home">
+      <div class="wrapper">
+        <div class="col-a">
+          <header>
+            <h1>Cisco Packet Tracer</h1>
+          </header>
+  
+          <div class="content">
+            <p>
+              Adquira habilidades reais com nossa poderosa ferramenta de simulação de rede, onde você pratica habilidades de rede, IoT e segurança cibernética em um laboratório virtual - sem necessidade de hardware!
+            </p>
+            <a class="button" href="https://id.cisco.com/">
+              Faça o Download
+            </a>
+          </div>
+        </div>
+
+        <div >
+          <img src="./assets/logo.png" alt="logo-cisco-packet-tracer" />
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>+10.000</h3>
+            <p>Downloads realizados</p>
+          </div>
+          <div class="stat">
+            <h3>+30</h3>
+            <p>Cursos disponíveis</p>
+          </div>
+          <div class="stat">
+            <h3>+14</h3>
+            <p>Anos no mercado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrapper">
+        <header>
+          <h4>Funcionalidades</h4>
+          <h2>Ambiente de testes</h2>
+        </header>
+
+        <div class="content">
+          <div class="cards">
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Computadores</h3>
+              <p>
+                Simule o sistema operacional para a comunicação entre dispositivos de redes.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Servidores</h3>
+              <p>
+                Simule serviços como: DHCP, DNS, FTP, SMTP, entre outros.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Roteadores</h3>
+              <p>
+                Manipule configurações de roteamento ESTÁTICO e DINÂMICO, além de operar direto pelo CLI.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Switch's</h3>
+              <p>
+                Simule o funcionamento de switch's gerenciáveis e nao gerenciáveis. Manipulando as portas individualmente.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Redes Internas</h3>
+              <p>
+                Simule o funcionamento de uma rede interna em um ambiente 100% virtual e seguro.
+              </p>
+            </div>
+
+            <div class="card">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+                <path
+                  d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                  stroke="#00856F"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3>Redes Externas</h3>
+              <p>
+                Simule a comunicação entre redes; WLAN, WAN, LAN, SDWAN.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrapper">
+        <div class="col-a">
+          <header>
+            <h4>Sobre nós</h4>
+            <h2>Entenda quem somos e por que existimos</h2>
+          </header>
+          <div class="content">
+            <p>
+              Somos alunos do curso de Sistemas de Informação da UGB, que nós interessamos pelo software Cisco Packet Tracer e buscamos nos especializar na ferramenta.  Buscamos conhecimento através dos diversos cursos que a plataforma cisco disponibiliza de forma gratuita e utilizamos o software para por em pratica o conhecimento adquirido. 
+              Por isso viemos falar um pouco da ferramenta com o intuito de que possamos mostrar uma maneira segura e real de adquirir um treinamento em uma empresa que é referencia no mercado de infraestrutura de TI mundialmente.
+            </p>
+          </div>
+        </div>
+        <div class="col-b">
+            <img
+              src="./assets/cisco-packet-tracer.png"
+              alt="doutor-feliz-com-prancheta-com-pacientes"
+            />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+
+      <div class="wrapper">
+        <div class="col-a">
+          <a class="logo" href="#home">
+            <img src="./assets/cisco-logo-menu.png" alt="logo-cisco-packet-tracer">
+          </a>
+          <p>
+          ©2023 Cisco Packet Tracer. <br>
+          Todos os direitos reservados.
+          </p>
+        </div>
+
+        <div class="col-b-social-links">
+          <ul class="social-links">
+              <li>
+                <p>Caio Victor</p>
+              </li>
+              <li>
+                <p>Elvis Ribeiro </p>
+              </li>
+              <li>
+                <p>Gabriel Leandro</p>
+              </li>
+              <li>
+                <p>Giovanny Alves</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+
+    <a id="backTop" class="show" href="#home">
+      <svg 
+        width="40" 
+        height="40" 
+        viewBox="0 0 40 40" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg">
+
+        <circle cx="20" cy="20" r="20" fill="#00856F"/>
+        <path d="M20 27V13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M13 20L20 13L27 20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <!-- ScrollReveal Lib-->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
