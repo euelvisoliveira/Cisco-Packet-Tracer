@@ -302,7 +302,7 @@ body.menu-expanded button path {
   padding-top: calc(4.1rem + var(--nav-heigth));
 }
 
-#home::before {
+/* #home::before {
   content: '';
   width: 100%;
   height: calc(76% + var(--nav-heigth));
@@ -310,9 +310,11 @@ body.menu-expanded button path {
   display: block;
 
   position: absolute; /* */
-  top: 0;
+/* top: 0;
   left: 0;
   z-index: -1; /* serve para colocar no fundo*/
+#home {
+  background: var(--bran-ligth);
 }
 
 #home .button {
@@ -781,6 +783,7 @@ footer p {
   border-radius: 0.6rem;
   padding: 3rem;
   margin: 5rem 3rem 0;
+  font-size: 1.7rem;
 
   font-weight: 400;
   line-height: 150%;
