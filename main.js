@@ -1,14 +1,19 @@
 window.addEventListener('scroll', onScroll)
 
+const emblaNode = document.querySelector('.embla')
+const options = { loop: false }
+
+const embla = EmblaCarousel(emblaNode, options)
+
 onScroll()
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
 
   activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(example)
   activateMenuAtCurrentSection(services)
   activateMenuAtCurrentSection(about)
-  activateMenuAtCurrentSection(contact)
 }
 
 function activateMenuAtCurrentSection(section) {

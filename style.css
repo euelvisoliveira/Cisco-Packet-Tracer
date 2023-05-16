@@ -65,7 +65,6 @@ section {
 }
 
 section header h4 {
-  font-size: 0.875rem;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: 0.08rem;
@@ -514,7 +513,6 @@ footer .social-links {
     top: 7rem;
   }
 
-
   section header h2 {
     font-size: 4rem;
     line-height: 5.2rem;
@@ -763,7 +761,29 @@ footer .col-b-social-links {
   justify-self: flex-end;
 }
 
-
 footer p {
   margin-bottom: 0;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.subtitle {
+  border: 1px solid var(--bran-ligth);
+  border-radius: 0.6rem;
+  padding: 3rem;
+  margin: 5rem 3rem 0;
+
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  color: var(--primary-color);
 }
